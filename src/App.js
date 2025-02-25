@@ -4,6 +4,9 @@ import { useState } from "react";
 function App() {
   const [username, setUsername] = useState("name");
   const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("email");
+  const [name, setAge] = useState("age");
+  //const [gender, setGender] = useState();
 
   const userNameHandler = (event) => {
     console.log(event.target.value);
@@ -14,6 +17,20 @@ function App() {
     console.log(event.target.value);
     setPassword(event.target.value);
   };
+
+  const mailHandler = (event) => {
+    console.log(event.target.value);
+    setEmail(event.target.value);
+  };
+
+  const ageHandler = (event) => {
+    console.log(event.target.value);
+    setAge(event.target.value);
+  };
+  // const genderHandler = (event) => {
+  //   console.log(event.target.value);
+  //   setGender(event.target.value);
+  // };
 
   return (
     <div className="App">
@@ -26,6 +43,28 @@ function App() {
         onChange={passwordHandler}
         name="password"
       />
+      email : <input type="email" value={email} onChange={mailHandler} />
+      age :{" "}
+      <input type="number" name="age" value={name} onChange={ageHandler} />
+      gender : <br /> <hr />
+      {/* <label>
+        male :
+        <input
+          type="radio"
+          name="gender"
+          value="male"
+          onChange={genderHandler}
+        />
+      </label>
+      <label>
+        female :
+        <input
+          type="radio"
+          name="gender"
+          value="female"
+          onChange={genderHandler}
+        />
+      </label> */}
     </div>
   );
 }
