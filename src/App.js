@@ -46,6 +46,11 @@ function App() {
       if (!hobbies.includes(event.target.value)) {
         setHobbies([...hobbies, event.target.value]);
         console.log(hobbies);
+      } else {
+        const newHobbies = hobbies.filter(
+          (hobby) => hobby !== event.target.value
+        );
+        setHobbies(newHobbies);
       }
     }
   };
