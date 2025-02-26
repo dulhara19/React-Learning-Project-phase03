@@ -7,6 +7,8 @@ function App() {
   const [email, setEmail] = useState("email");
   const [name, setAge] = useState("age");
   const [gender, setGender] = useState();
+  const [country, setCountry] = useState();
+  const [hobbies, setHobbies] = useState([]);
 
   const userNameHandler = (event) => {
     console.log(event.target.value);
@@ -31,6 +33,21 @@ function App() {
   const genderHandler = (event) => {
     console.log(event.target.value);
     setGender(event.target.value);
+  };
+
+  const countryHandler = (event) => {
+    console.log(event.target.value);
+    setCountry(event.target.value);
+  };
+
+  const hobbyHandler = (event) => {
+    if (event.target.checked) {
+      console.log(event.target.value);
+      if (!hobbies.includes(event.target.value)) {
+        setHobbies([...hobbies, event.target.value]);
+        console.log(hobbies);
+      }
+    }
   };
 
   return (
@@ -66,6 +83,47 @@ function App() {
           value="female"
           checked={gender === "female" ? true : false}
           onChange={genderHandler}
+        />
+      </label>
+      <label>
+        country :
+        <select value={country} onChange={countryHandler}>
+          <option value={""}>select country</option>
+          <option value={"india"}>India</option>
+          <option value={"usa"}>USA</option>
+          <option value={"uk"}>UK</option>
+          <option value={"canada"}>Canada</option>
+        </select>
+      </label>
+      <label>
+        hobbies : <br />
+        reading
+        <input
+          type="checkbox"
+          name="hobbies"
+          value="reading"
+          onChange={hobbyHandler}
+        />
+        writing
+        <input
+          type="checkbox"
+          name="hobbies"
+          value="writing"
+          onChange={hobbyHandler}
+        />
+        dancing
+        <input
+          type="checkbox"
+          name="hobbies"
+          value="dancing"
+          onChange={hobbyHandler}
+        />
+        playing
+        <input
+          type="checkbox"
+          name="hobbies"
+          value="playing"
+          onChange={hobbyHandler}
         />
       </label>
     </div>
